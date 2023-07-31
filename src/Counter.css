@@ -1,0 +1,37 @@
+.counter {
+  border: 1px solid black;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 25px;
+}
+
+.counter button {
+  background-color: rgb(72, 72, 79);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+.counter button:hover {
+  background-color: rgba(106, 178, 178, 0.907);
+}
+.counter p {
+  font-size: 30px;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+label {
+  display: inline-block;
+  margin: 5px auto;
+}
+
+p.clock {
+  cursor: pointer;
+  margin-top: 25px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+

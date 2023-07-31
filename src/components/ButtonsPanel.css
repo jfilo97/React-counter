@@ -1,0 +1,9 @@
+.buttonsPanel button {
+    margin: 15px 5px;
+}
+.close-button {
+    position: relative;
+    color: rgb(53, 173, 173);
+    top: -5px;
+    right: -1px;
+  }
