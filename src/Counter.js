@@ -8,19 +8,20 @@ import Step from './components/Step';
 const Counter = (props) => {
 
 
-
-    const [counterValue, setCounterValue] = useState(props.initValue)
+    
+    const [counterValue, setCounterValue] = useState(props.counterInitValue)
     const [stepValue, setStepValue] = useState(1)
 
 
 
     const changeValue = (action) => {
-        setCounterValue((prevState, prevProps) => {
-            let current = prevState.counterValue;
+        setCounterValue((prevCounter, prevProps) => {
+
+            let current = prevCounter;
 
             switch (action) {
                 case 'subtract': {
-                    current -= prevState.stepValue;
+                    current -= stepValue;
                     break;
                 }
                 case 'reset': {
@@ -28,27 +29,29 @@ const Counter = (props) => {
                     break;
                 }
                 case 'init': {
-                    current = prevProps.initValue;
+                 
+                    current = props.counterInitValue;
                     break;
                 }
                 case 'add': {
-                    current += prevState.stepValue;
+                    current += stepValue;
                     break;
                 }
                 default: {
-                    current = prevProps.initValue;
+                    
+                    current = props.counterInitValue;
                 }
             }
-            return ({
-                counterValue: current
-            });
+
+            return (
+                current
+            );
         })
     }
 
     const updateStep = (value) => {
-        setStepValue({
-            stepValue: value
-        })
+        console.log('halo');
+        setStepValue( value)
     }
 
     return (
@@ -64,69 +67,3 @@ const Counter = (props) => {
 };
 
 export default Counter;
-
-
-
-// class Counter extends Component {
-
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             counterValue: this.props.initValue,
-//             stepValue: 1
-//         };
-//     };
-
-
-//     changeValue = (action) => {
-//         this.setState((prevState, prevProps) => {
-//             let current = prevState.counterValue;
-
-//             switch (action) {
-//                 case 'subtract': {
-//                     current -= prevState.stepValue;
-//                     break;
-//                 }
-//                 case 'reset': {
-//                     current = 0;
-//                     break;
-//                 }
-//                 case 'init': {
-//                     current = prevProps.initValue;
-//                     break;
-//                 }
-//                 case 'add': {
-//                     current += prevState.stepValue;
-//                     break;
-//                 }
-//                 default: {
-//                     current = prevProps.initValue;
-//                 }
-//             }
-//             return ({
-//                 counterValue: current
-//             });
-//         })
-//     }
-
-//     updateStep = (value) => {
-//         this.setState({
-//             stepValue: value
-//         })
-//     }
-
-//     render() {
-//         return (
-//             <div className="counter">
-//                 Counter:
-//                 <Display displayValue={this.state.counterValue} />
-//                 <ButtonsPanel buttonMethod={this.changeValue}
-//                     stepChange={this.updateStep}
-//                     stepValue={this.state.stepValue} />
-//                 <Step stepMethod={this.changeStep} />
-//             </div>
-//             );
-//     };
-// };
-
-// export default Counter;
